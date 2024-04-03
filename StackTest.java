@@ -1,15 +1,16 @@
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class StackTest {
 	public static void main(String[] args) {
 		Stack st = new Stack();
 		
-		MyStack stack = new MyStack(5);
-		stack.push('A');
+		MyStack<Integer> stack = new MyStack(5);
+		stack.push(10);
 		stack.push(20);
-		stack.push("Jack");
+		stack.push(30);
 		stack.push(40);
-		stack.push(50.0f);
+		stack.push(50);
 		
 		
 	//	System.out.println(stack.peek());
@@ -25,36 +26,41 @@ public class StackTest {
 	}
 }
 
-class MyStack
+class MyStack<T>
 {
-	Object array[]; // = new int[ ? ]
+	//T array[]; // = new int[ ? ]
+	ArrayList<T> A;
 	int top=-1;
 	int size;
 	
 	public MyStack(int size) {
 		this.size = size;
-		array = new Object [ size ];
+		A = new ArrayList<T>(size);
+		//array = (T[]) new Object [ size ];
 	}
-	void push(Object item) {
+	void push(T item) {
 			
 		if(top+1 >= size)
 			throw new StackOverFlowException("Stack is full");
 		
-		array [ ++top ] = item;
+		++top;
+		A.add(item);
+		//array [ ++top ] = item;
 	}
 	
-	Object pop() {
+	T pop() {
 		if(top==-1) 
 			throw new EmptyStackExeption("Stack is Empty");
 		
-		return array [ top-- ];
+		return A.get(top--);
+		//return array [ top-- ];
 	}
 	
-	Object peek() {
+	T peek() {
 		if(top==-1) 
 			throw new EmptyStackExeption("Stack is Empty");
 		
-		return array[top];
+		return A.get(top);
 	}
 }
 
