@@ -1,8 +1,8 @@
 
 public class MissingIntegerTest {
 	public static void main(String[] args) {
-		int A[]= {5,4,3,2,9,8,7,6};
-		//int A[]= {5,3,2,1};
+		//int A[]= {5,4,3,2,9,8,7,6};
+		int A[]= {5,3,2,1};
 		long start = System.nanoTime();
 		int val1 = 	Missing.solution1(A);
 		long duration = (System.nanoTime() - start);
@@ -34,7 +34,7 @@ class Missing {
 	static int solution2(int A []) {
 		int temp=0;
 	    int counter=1;
-	    for(int i : A) {
+	    for(int i : A) { //5 3 2 1
 	            temp ^= i;
 	            temp ^= counter;
 	            counter++;
@@ -43,3 +43,15 @@ class Missing {
 	    return temp;
 	}
 }
+
+/*
+5		101
+3		011
+2		010
+1		001
+
+	temp = temp^i;  //000		1:001 2:010 3:011 4:100 5:101 
+						  
+
+*/
+
