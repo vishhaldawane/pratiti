@@ -22,6 +22,18 @@ class MyLinkedList
 	Employee start=null;
 	Employee current=null;
 	
+	void addAtBegining(Employee node) {
+		if(start==null) {
+			start = node; //first object
+			current = node;
+			start.next = null;
+			start.prev = null;
+		}
+		else {
+			
+		}
+	}
+	
 	void add(Employee node) {
 		if(start==null) {
 			start = node; //first object
